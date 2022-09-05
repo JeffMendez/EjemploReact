@@ -1,4 +1,4 @@
 # EjemploReact
 
-Instalación librerias: yarn
-Ejecutar: yarn dev
+## Instalación librerias: yarn
+## Ejecutar: yarn dev
