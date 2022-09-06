@@ -4,6 +4,8 @@ import reactLogo from './assets/react.svg'
 import './App.css'
 import { Alumno } from './Alumno';
 import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
+import { increment } from './store/generalSlice';
 
 function App() {
   
@@ -12,8 +14,12 @@ function App() {
   const [array, setArray] = useState(['Toyota']);
   const [arryObj, setArryObj] = useState([{nombre: "Joel", edad: 15}, {nombre: "Daniel", edad: 22}]);
 
+  const dispatch = useDispatch();
+  const { value } = useSelector(state => state.general);
+
   const funcInicio = () => {
-    console.log("hola")
+    console.log("hola");
+    console.log(value);
   }
 
   useEffect(() => {
@@ -27,6 +33,7 @@ function App() {
 
   const funcCount1 = (e) => {
     setCount(count + 1);
+    dispatch(increment(5));
   }
 
   const funcObj = (valor) => {
@@ -34,7 +41,7 @@ function App() {
   }
 
   const funcArray = () => {
-    setArray([...array, 'Mazda'])
+    setArray([...array, 'Mazda']);
   }
 
   const funcNotas = (dato) => {
